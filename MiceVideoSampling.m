@@ -20,13 +20,16 @@ while hasFrame(videoObject)
     thisFrame = readFrame(videoObject);
     % processing goes here. Mark the time and rescale.
     timestr = datestr(videoObject.CurrentTime/86400, 'HH:MM:SS.FFF');
-    processedFrame = insertText(thisFrame,position,timestr,'FontSize',18,'BoxColor',...
+    position = [20 330];
+    box_color = {'red'};
+    timedFrame = insertText(thisFrame,position,timestr,'FontSize',24,'BoxColor',...
     box_color,'BoxOpacity',0.4,'TextColor','white');
-    writeVideo(writeObject,processedFrame);
+    resizedFrame = imresize(timedFrame,0.5);
+    writeVideo(writeObject,resizedFrame);
     if videoObject.CurrentTime>t_end
     break;
     end
 end
-    
+disp(timestr)    
 end
 close(writeObject);

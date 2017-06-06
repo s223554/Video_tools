@@ -19,9 +19,11 @@ open(writeObject);
 while hasFrame(videoObject1) && hasFrame(videoObject2)
     thisFrame1 = readFrame(videoObject1);
     thisFrame2 = readFrame(videoObject2);
-    % processing goes here. Mark the time and rescale.
+    % processing goes here.
     joinedFrame = [thisFrame1 thisFrame2];
     writeVideo(writeObject,joinedFrame);
-    
+    % display current time processed.
+    timestr = datestr(videoObject.CurrentTime/86400, 'HH:MM:SS.FFF');
+    disp(timestr)  
 end
 close(writeObject)

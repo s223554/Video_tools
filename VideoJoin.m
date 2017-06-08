@@ -23,7 +23,9 @@ while hasFrame(videoObject1) && hasFrame(videoObject2)
     joinedFrame = [thisFrame1 thisFrame2];
     writeVideo(writeObject,joinedFrame);
     % display current time processed.
-    timestr = datestr(videoObject.CurrentTime/86400, 'HH:MM:SS.FFF');
-    disp(timestr)  
+    timestr1 = datestr(videoObject1.CurrentTime/86400, 'HH:MM:SS.FFF');
+    timestr2 = datestr(videoObject2.CurrentTime/86400, 'HH:MM:SS.FFF');
+    disp(timestr1)
+    %disp(timestr2)
 end
 close(writeObject)

@@ -4,8 +4,8 @@ movieFullFileName  = fullfile(folder, files);
 %% open file
 videoObject = VideoReader(movieFullFileName);
 writeObject = VideoWriter(strcat(movieFullFileName(1:end-4),'_sampled'),'MPEG-4');
-writeObject.FrameRate = 15;
 FR = videoObject.FrameRate;
+writeObject.FrameRate = FR;
 numberOfFrames = videoObject.Duration*FR;
 vidHeight = videoObject.Height;
 vidWidth = videoObject.Width;
